@@ -27,6 +27,8 @@ function App() {
         <Box2/>
         <Box2/>
         <Box2/>
+        <Box2/>
+        <Box2/>
       </div>
     </div>
   );
