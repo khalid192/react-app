@@ -1,6 +1,6 @@
 function Box1(propt) {
   return (
-    <div style={{
+    <div style={{ 
       margin:'10px',
        border: 'solid 5px lightblue',
         width: '35vw', height: 'auto', 

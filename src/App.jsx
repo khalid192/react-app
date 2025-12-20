@@ -1,11 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 import Box1 from "./box1";
-import Box2 from "./Box2";
-import img from "./assets/startloop.svg"
-import img1 from "./assets/woman.jpg"
-import img2 from "./assets/star.svg"
-import img3 from "./assets/rose.jpg"
+import Box3 from "./Box3";
+
+const verify=true;
 function App() {
 
 
@@ -27,12 +25,15 @@ function App() {
       </div>
 
       <div className="BoxBtn">
-        <Box2 title="جديدة" img={img}/>
-        <Box2 title='الاكتر قراءة' img1={img1} />
-        <Box2 title='مقالات مميزة' img={img2} img1={img3}/>
+       {fBox3()}
       </div>
     </div>
   );
+}
+
+
+function fBox3(){
+  if(verify==true){return <Box3/>}else{return null}
 }
 
 export default App;
