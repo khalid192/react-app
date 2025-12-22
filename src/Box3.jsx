@@ -7,11 +7,14 @@ import "./App.css";
 
 
 function Box3(){
+const btn=[
+    {id:1,title:"جديدة",img:img},
+    {id:2,title:"جديدة",img1:img1},
+    {id:3,title:"جديدة", img:img2, img1:img3},]
 return(
+
     <>
-        <Box2 title="جديدة" img={img}/>
-        <Box2 title='الاكتر قراءة' img1={img1} />
-        <Box2 title='مقالات مميزة' img={img2} img1={img3}/>
+    {btn.map((b)=>{return <Box2 title={b.title} img={b.img} img1={b.img1} />})}
     </>
 )
 }
