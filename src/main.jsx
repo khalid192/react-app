@@ -2,11 +2,15 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import Inputfunc from './input.jsx'
 import Header from './header.jsx'
+import Button from './botton.jsx'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Header />
-    <App />
+    <Button />
+    <Inputfunc />
   </StrictMode>,
 )
