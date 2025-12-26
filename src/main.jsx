@@ -5,12 +5,14 @@ import App from './App.jsx'
 import Inputfunc from './input.jsx'
 import Header from './header.jsx'
 import Button from './botton.jsx'
+import Aray from './aray.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Header />
     <Button />
-    <Inputfunc />
+    <Aray />
+
   </StrictMode>,
 )
