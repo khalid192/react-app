@@ -8,10 +8,12 @@ export default function Aray() {
     { id: 5, name: "Elderberry" },
   ]);
 
+
+
   const [inputValue, setInputValue] = useState("");
   function removeItem(itemToRemove) {
-    setItems((prev) => prev.filter((item) => item.id !== itemToRemove.id));
-    console.log(itemToRemove.id);
+    const newitems = [...items];
+ setItems (newitems.filter(item=>item.id !== itemToRemove.id))
   }
  
   function EditItem(itemToEdit) {
