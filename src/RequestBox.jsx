@@ -1,0 +1,90 @@
+import "./RequestBox.css";
+import { useState } from "react";
+import Successfully1 from "./Successfullt1";
+import SuccessfullyAge from "./Successfullt0";
+
+export default function Rb() {
+  const [info, setInfo] = useState({
+    Name: "khalid",
+    Phone: "0655167703",
+    Age: 22,
+    employee: false,
+    salary: "less than 500$",
+  });
+   
+  //section for functions
+
+function Nf(info){
+   setInfo((e)=>{
+   return{...e,Name:info.target.value}})}
+
+
+function Pf(info){
+   setInfo((e)=>{
+   return{...e,Phone:info.target.value}})}
+
+
+function Af(info){
+   setInfo((e)=>{
+   return{...e,Age:info.target.value}})}   
+
+function Cf(info){
+  console.log(info)
+   setInfo((e)=>{
+   return{...e,employee:info.target.checked}})}      
+
+function Sf(info){
+     console.log(info)
+   setInfo((e)=>{
+ 
+   return{...e,salary:info.target.value}})}
+
+
+
+function  kf(){
+document.querySelector(".divSu").style.display="flex";
+}  
+
+
+
+   
+  return (
+    <>
+      
+      <div className="divSu">
+        { info.Age<18 ? <SuccessfullyAge/> : <Successfully1/> }
+      </div>
+
+     
+        
+  
+
+
+      <div className="req">
+        <h2>Requesting a Loan</h2> <hr />
+
+        <label htmlFor="">Name:</label>
+        <input onChange={(e)=>{Nf(e)}} value={info.Name} type="text" /><br />
+        
+        <label htmlFor="">Phone Number:</label>
+        <input onChange={(e)=>{Pf(e)}} value={info.Phone} type="number" /><br />
+        
+        <label htmlFor="">Age:</label>
+        <input onChange={(e)=>{Af(e)}} value={info.Age} type="number" /><br />
+        
+        <label htmlFor="">Are you an employee?</label>
+        <input onChange={(e)=>{Cf(e)}} type="checkbox"  checked={info.employee}/> <br />
+
+        <label htmlFor="">Salary</label>
+        <select onChange={(e)=>{Sf(e)}} value={info.salary} id="">
+          <option value="less than 500$">less than 500$</option>
+          <option value="between 500$ and 2000$">between 500$ and 2000$</option>
+          <option value="abov 2000$">abov 2000$</option>
+        </select><br />
+
+        
+        <button onClick={()=>{kf()}} type="submit">submit</button>
+      </div>
+    </>
+  );
+}
