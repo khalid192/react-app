@@ -1,7 +1,11 @@
 import "./RequestBox.css";
 import { useState } from "react";
+import SuccessfullyPhone from "./SuccessfullyN.JSX";
 import Successfully1 from "./Successfullt1";
 import SuccessfullyAge from "./Successfullt0";
+
+
+
 
 export default function Rb() {
   const [info, setInfo] = useState({
@@ -52,7 +56,7 @@ document.querySelector(".divSu").style.display="flex";
     <>
       
       <div className="divSu">
-        { info.Age<18 ? <SuccessfullyAge/> : <Successfully1/> }
+        { info.Age<18 ? <SuccessfullyAge/> :info.Phone.length <10 ? <SuccessfullyPhone/> : <Successfully1/> }
       </div>
 
      

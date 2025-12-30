@@ -3,7 +3,7 @@
 import "./RequestBox.css";
 
 
-export default function SuccessfullyPhone() {
+export default function SuccessfullyAge() {
   return (
     <>
       <div className="age-not-allowed">
