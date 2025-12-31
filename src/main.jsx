@@ -11,7 +11,7 @@ import Aray from './aray.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-  
+ 
     <Bc />
 
   </StrictMode>,

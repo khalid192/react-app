@@ -3,6 +3,7 @@ import { useState } from "react";
 import SuccessfullyPhone from "./SuccessfullyN.JSX";
 import Successfully1 from "./Successfullt1";
 import SuccessfullyAge from "./Successfullt0";
+import SuccessfullyName from "./SuccessfullyName.jsx";
 
 
 
@@ -45,8 +46,14 @@ function Sf(info){
 
 
 
+
 function  kf(){
+  
 document.querySelector(".divSu").style.display="flex";
+}  
+
+function  Df(){
+document.querySelector(".divSu").style.display="none";
 }  
 
 
@@ -55,8 +62,8 @@ document.querySelector(".divSu").style.display="flex";
   return (
     <>
       
-      <div className="divSu">
-        { info.Age<18 ? <SuccessfullyAge/> :info.Phone.length <10 ? <SuccessfullyPhone/> : <Successfully1/> }
+      <div onClick={Df} className="divSu">
+        { info.Age<18 ? <SuccessfullyAge/> :info.Phone.length <10 ? <SuccessfullyPhone/> :info.Name.length <3 ? <SuccessfullyName/> : <Successfully1/> }
       </div>
 
      
@@ -87,7 +94,14 @@ document.querySelector(".divSu").style.display="flex";
         </select><br />
 
         
-        <button onClick={()=>{kf()}} type="submit">submit</button>
+        <button  style={{
+    backgroundColor:
+      info.Age > 18 &&
+      info.Phone.length >= 10 &&
+      info.Name.length >= 3
+        ? "green"
+        : "red",
+  }} onClick={()=>{kf()}} type="submit">submit</button>
       </div>
     </>
   );
