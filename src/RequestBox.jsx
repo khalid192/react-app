@@ -10,9 +10,9 @@ import SuccessfullyName from "./SuccessfullyName.jsx";
 
 export default function Rb() {
   const [info, setInfo] = useState({
-    Name: "khalid",
-    Phone: "0655167703",
-    Age: 22,
+    Name: "",
+    Phone: "",
+    Age:18 ,
     employee: false,
     salary: "less than 500$",
   });
@@ -47,9 +47,14 @@ function Sf(info){
 
 
 
-function  kf(){
+  async function  kf(e){
+ 
+ e.preventDefault();
+
   
 document.querySelector(".divSu").style.display="flex";
+await new Promise((r)=>setTimeout(r,2000));
+info.Age>=18 && info.Phone.length >=10 && info.Name.length >=3 ?alert(`name: ${info.Name} , phone: ${info.Phone} , age: ${info.Age} , employee: ${info.employee} , salary: ${info.salary}`) :null;
 }  
 
 function  Df(){
@@ -71,7 +76,7 @@ document.querySelector(".divSu").style.display="none";
   
 
 
-      <div className="req">
+      <form className="req">
         <h2>Requesting a Loan</h2> <hr />
 
         <label htmlFor="">Name:</label>
@@ -94,15 +99,19 @@ document.querySelector(".divSu").style.display="none";
         </select><br />
 
         
-        <button  style={{
+        <button id="btn"  style={{
     backgroundColor:
-      info.Age > 18 &&
+      info.Age >= 18 &&
       info.Phone.length >= 10 &&
       info.Name.length >= 3
         ? "green"
         : "red",
-  }} onClick={()=>{kf()}} type="submit">submit</button>
-      </div>
+    
+
+  }}
+
+  onClick={(e)=>{kf(e)}} >submit</button>
+      </form>
     </>
   );
 }
