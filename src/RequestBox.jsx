@@ -4,7 +4,7 @@ import SuccessfullyPhone from "./SuccessfullyN.JSX";
 import Successfully1 from "./Successfullt1";
 import SuccessfullyAge from "./Successfullt0";
 import SuccessfullyName from "./SuccessfullyName.jsx";
-
+import Input1 from "./input1.jsx";
 export default function Rb() {
   const [info, setInfo] = useState({
     Name: "",
@@ -15,25 +15,6 @@ export default function Rb() {
   });
 
   //section for functions
-
-  function Nf(info) {
-    setInfo((e) => {
-      return { ...e, Name: info.target.value };
-    });
-  }
-
-  function Pf(info) {
-    setInfo((e) => {
-      return { ...e, Phone: info.target.value };
-    });
-  }
-
-  function Af(info) {
-    setInfo((e) => {
-      return { ...e, Age: info.target.value };
-    });
-  }
-
   function Cf(info) {
     console.log(info);
     setInfo((e) => {
@@ -64,6 +45,27 @@ export default function Rb() {
     document.querySelector(".divSu").style.display = "none";
   }
 
+
+  function Nf1(e) {
+    setInfo((info) => {
+      return { ...info, Name: e };
+    });
+  }
+
+    function Nf2(e) {
+    setInfo((info) => {
+      return { ...info, Phone: e };
+    });
+  }
+    function Nf3(e) {
+    setInfo((info) => {
+      return { ...info, Age: e };
+    });
+  }
+
+
+
+  
   return (
     <>
       <div onClick={Df} className="divSu">
@@ -79,33 +81,13 @@ export default function Rb() {
       </div>
 
       <form className="req">
-        <h2>Requesting a Loan</h2> <hr />
-        <label htmlFor="">Name:</label>
-        <input
-          onChange={(e) => {
-            Nf(e);
-          }}
-          value={info.Name}
-          type="text"
-        />
+         <h2>Requesting a Loan</h2> <hr />
+
+        <Input1 value={info.Name} onChange={Nf1} title={'Name'} type={'text'} />
         <br />
-        <label htmlFor="">Phone Number:</label>
-        <input
-          onChange={(e) => {
-            Pf(e);
-          }}
-          value={info.Phone}
-          type="number"
-        />
+        <Input1 value={info.Phone} onChange={Nf2} title={'Phone Number'} type={'number'} />
         <br />
-        <label htmlFor="">Age:</label>
-        <input
-          onChange={(e) => {
-            Af(e);
-          }}
-          value={info.Age}
-          type="number"
-        />
+        <Input1 value={info.Age} onChange={Nf3} title={'Age'} type={'number'} />
         <br />
         <label htmlFor="">Are you an employee?</label>
         <input
