@@ -4,6 +4,7 @@ import SuccessfullyPhone from "./SuccessfullyN.JSX";
 import Successfully1 from "./Successfullt1";
 import SuccessfullyAge from "./Successfullt0";
 import SuccessfullyName from "./SuccessfullyName.jsx";
+import InputContext from "./conext/InputContext.jsx";
 import Input1 from "./input1.jsx";
 export default function Rb() {
   const [info, setInfo] = useState({
@@ -71,6 +72,7 @@ export default function Rb() {
       <div onClick={Df} className="divSu">
         {info.Age < 18 ? (
           <SuccessfullyAge />
+          
         ) : info.Phone.length < 10 ? (
           <SuccessfullyPhone />
         ) : info.Name.length < 3 ? (
@@ -83,7 +85,12 @@ export default function Rb() {
       <form className="req">
          <h2>Requesting a Loan</h2> <hr />
 
-        <Input1 value={info.Name} onChange={Nf1} title={'Name'} type={'text'} />
+          <InputContext.Provider value={{info, setInfo,Nf1}}>
+          <Input1 value={info.Name} onChange={Nf1} title={'Name'} type={'text'} />
+          </InputContext.Provider>
+          
+         
+        
         <br />
         <Input1 value={info.Phone} onChange={Nf2} title={'Phone Number'} type={'number'} />
         <br />
