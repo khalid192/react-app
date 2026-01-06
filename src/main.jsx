@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import {BrowserRouter} from 'react-router-dom'
 import Bc from './bC.jsx'
 import './index.css'
 import App from './App.jsx'
@@ -11,8 +12,9 @@ import Aray from './aray.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
- 
-    <Bc />
-
+    <BrowserRouter>
+      <Bc />
+    </BrowserRouter>
+    
   </StrictMode>,
 )

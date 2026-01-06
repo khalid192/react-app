@@ -1,11 +1,15 @@
 import "./RequestBox.css";
-import { useState } from "react";
+import { use, useState } from "react";
 import SuccessfullyPhone from "./SuccessfullyN.JSX";
 import Successfully1 from "./Successfullt1";
 import SuccessfullyAge from "./Successfullt0";
 import SuccessfullyName from "./SuccessfullyName.jsx";
 import InputContext from "./conext/InputContext.jsx";
+import { useNavigate } from "react-router-dom";
 import Input1 from "./input1.jsx";
+import Header from './header.jsx'
+import { Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Rb() {
   const [info, setInfo] = useState({
     Name: "",
@@ -30,8 +34,13 @@ export default function Rb() {
     });
   }
 
+
+
+   
+ 
   async function kf(e) {
     e.preventDefault();
+    
 
     document.querySelector(".divSu").style.display = "flex";
     await new Promise((r) => setTimeout(r, 2000));
@@ -39,6 +48,7 @@ export default function Rb() {
       ? alert(
           `name: ${info.Name} , phone: ${info.Phone} , age: ${info.Age} , employee: ${info.employee} , salary: ${info.salary}`
         )
+        
       : null;
   }
 
@@ -118,7 +128,7 @@ export default function Rb() {
           <option value="abov 2000$">abov 2000$</option>
         </select>
         <br />
-        <button
+        <button 
           id="btn"
           style={{
             backgroundColor:
@@ -132,7 +142,10 @@ export default function Rb() {
         >
           submit
         </button>
+
+
       </form>
+
     </>
   );
 }
