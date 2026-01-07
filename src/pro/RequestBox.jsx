@@ -1,10 +1,10 @@
 import "./RequestBox.css";
 import { use, useState } from "react";
 import SuccessfullyPhone from "./SuccessfullyN.JSX";
-import Successfully1 from "./Successfullt1";
-import SuccessfullyAge from "./Successfullt0";
+import Successfully1 from "./Successfullt1.jsx";
+import SuccessfullyAge from "./Successfullt0.jsx";
 import SuccessfullyName from "./SuccessfullyName.jsx";
-import InputContext from "./conext/InputContext.jsx";
+import InputContext from "../conext/InputContext.jsx";
 import { useNavigate } from "react-router-dom";
 import Input1 from "./input1.jsx";
 import Header from './header.jsx'

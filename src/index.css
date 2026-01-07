@@ -1,3 +1,5 @@
 body,html{
     overflow: hidden;
+    display: flex;
+    justify-self: center;
 }

@@ -1,4 +1,4 @@
-import Box2 from "./Box2"
+import Box2 from "./pro/Box2"
 import img from "./assets/startloop.svg"
 import img1 from "./assets/woman.jpg"
 import img2 from "./assets/star.svg"

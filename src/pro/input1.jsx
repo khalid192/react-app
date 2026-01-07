@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import InputContext from "./conext/InputContext.jsx";
+import InputContext from "../conext/InputContext.jsx";
 
 
 

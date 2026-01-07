@@ -1,19 +1,18 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {BrowserRouter} from 'react-router-dom'
-import Bc from './bC.jsx'
+
 import './index.css'
-import App from './App.jsx'
-import Inputfunc from './input.jsx'
-import Header from './header.jsx'
-import Button from './botton.jsx'
-import Aray from './aray.jsx'
+import App from './App'
+
+
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    
     <BrowserRouter>
-      <Bc />
+      <App />
     </BrowserRouter>
     
   </StrictMode>,

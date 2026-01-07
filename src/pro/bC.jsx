@@ -1,6 +1,6 @@
 
 import './bC.css'
-import Rb from './RequestBox';
+import Rb from './RequestBox.jsx';
 import Header from './header.jsx'
 
 
