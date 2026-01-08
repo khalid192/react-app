@@ -1,4 +1,4 @@
-import { Route, Link, Routes } from "react-router-dom";
+import { Route, Link, Routes,Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { PostsContext } from "./conext/InputContext.jsx";
 
@@ -19,7 +19,7 @@ export default function Post() {
         <button>Go to Home</button>
       </Link>
       <div> {postList}</div>
-     
+    
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useParams ,Link} from "react-router-dom";
+import { useParams ,Link,Outlet} from "react-router-dom";
 import { useContext } from "react";
 import { PostsContext } from "./conext/InputContext.jsx";
 import Worngpage from "./Worngpage.jsx";
@@ -7,11 +7,11 @@ import Worngpage from "./Worngpage.jsx";
 
 
 export default function Postlist() {
-    const {Id} = useParams()
+    const {id} = useParams()
    
     const posts = useContext(PostsContext);
   
-    const post = posts.find((p) => { if(p.id ===Number(Id)){return p} } );
+    const post = posts.find((p) => { if(p.id ===Number(id)){return p} } );
     console.log(post);
   return (
     <div>
@@ -22,7 +22,7 @@ export default function Postlist() {
         <Link to="/post">
             <button>Go to Post Page</button>
         </Link>
-
+    
     </div>
   );
 }
