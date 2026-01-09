@@ -1,6 +1,6 @@
 import { Route, Link, Routes,Outlet } from "react-router-dom";
 import { useContext } from "react";
-import { PostsContext } from "./conext/InputContext.jsx";
+import { PostsContext } from "../conext/InputContext.jsx";
 
 export default function Post() {
   const posts = useContext(PostsContext);

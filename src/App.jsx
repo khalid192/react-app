@@ -1,29 +1,17 @@
-import { Route,Link,Routes } from "react-router-dom";
-import Post from "./post";
-import Home from "./Home";
-import Postlist from "./postlist.jsx";
-import NotFound from "./NotFound.jsx";
-import Upper from "./upper.jsx";
 
-
+import DisabledAccordion from './accordion.jsx';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
 
 
 export default function App() {
   return (
     <div className="App">
-
-    <Routes>
-      <Route path="/" element={<Home />} />
-
-
-      <Route path="/post" element={<Upper />}>
-       <Route index element={<Post />} />
-       <Route path=":id" element={<Postlist />} />
-      </Route>
-
-      <Route path="*" element={<NotFound />} />
-    </Routes>   
+       <Container maxWidth="md" sx={{ bgcolor: '#abb3baff', height: '100vh', padding: 2 ,borderRadius: "10px"}} >
+         <DisabledAccordion />
+      </Container>
+    
     </div>
    
 

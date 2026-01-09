@@ -1,6 +1,6 @@
 import { useParams ,Link,Outlet} from "react-router-dom";
 import { useContext } from "react";
-import { PostsContext } from "./conext/InputContext.jsx";
+import { PostsContext } from "../conext/InputContext.jsx";
 import Worngpage from "./Worngpage.jsx";
 
 
