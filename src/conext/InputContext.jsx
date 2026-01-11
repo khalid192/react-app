@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext ,useState} from "react";
 
 export const InputContext = createContext();
 
@@ -13,3 +13,6 @@ export const PostsContext = createContext([
   { id: 8, title: "post8", body: "this is the body of post 8" },
   { id: 9, title: "post9", body: "this is the body of post 9" },
 ]);
+
+export const ListContext = createContext(
+);
