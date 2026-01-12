@@ -13,7 +13,7 @@ export default function ButtonAdd() {
    const {list ,setlist} = useContext(ListContext);
 
   function Handelchange() {
-    if(inputValue!=''){setlist((e)=>[...e,{id:list.length+1, title: inputValue, body: "" }])}
+    if(inputValue!=''){setlist((e)=>[...e,{id:Date.now(), title: inputValue, body: "" }])}
 
     setInputValue('')
   

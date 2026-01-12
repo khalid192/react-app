@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { ListContext } from "./conext/InputContext.jsx";
 
 
+
+
 export default function App() {
   
 const [list,setlist]=useState([
@@ -13,13 +15,17 @@ const [list,setlist]=useState([
   { id: 2, title: "الدهاب لصالة الرياضة", body: "" },
   { id: 3, title: "قراءة كتاب", body: "" },
   { id: 4, title: "قراءة كتاب", body: "" }])
+
+  const[edit,setedit]=useState(false)
+
+  const[Id,setId]=useState('')
   
   
   
   return (
     <div className="App">
 
-    <ListContext.Provider value={{ list,setlist }}>
+    <ListContext.Provider value={{ list,setlist ,edit,setedit,Id,setId}} >
      <Box />
     </ListContext.Provider>
      

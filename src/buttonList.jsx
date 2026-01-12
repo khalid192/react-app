@@ -7,16 +7,17 @@ import CheckIcon from '@mui/icons-material/Check';
 
 
 export default function ButtonList(){
+
+
+       function Delete (){console.log(item.id) }
+      
     
-    const btn =<ListItemIcon 
-      sx={{
-        minWidth: 40,
-        marginLeft: 'auto',
-        margin:0
-      }}
-    >
-      <Fab onClick={()=>{console.log(1)}} size="small" sx={{background:"white",boxShadow:'#c93c23ff 0 0 1px 1px ', '&:hover':{backgroundColor: '#d999927c',},scale:'0.75' }}  aria-label="Delete">
-        <DeleteOutlineIcon sx={{color:"#c93c23ff"}}  /> 
+    const btn =<ListItemIcon sx={{ minWidth: 40, marginLeft: 'auto',margin:0 }}>
+
+    
+
+      <Fab onClick={(e)=>{Delete(e)}} size="small" sx={{background:"white",boxShadow:'#c93c23ff 0 0 1px 1px ', '&:hover':{backgroundColor: '#d999927c',},scale:'0.75' }}  aria-label="Delete">
+        <DeleteOutlineIcon  sx={{color:"#c93c23ff"}}  /> 
       </Fab>
 
      <Fab size="small" sx={{background:"white",boxShadow:'blue 0 0 1px 1px ', '&:hover':{backgroundColor: '#718fca69',},scale:'0.75' }}  aria-label="Delete">
