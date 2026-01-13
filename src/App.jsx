@@ -1,7 +1,7 @@
   import './index.css'
   import Box from './box.jsx'
 import Tooltip from '@mui/material/Tooltip';
-import { useState } from 'react';
+import { use, useState } from 'react';
 import { ListContext } from "./conext/InputContext.jsx";
 
 
@@ -10,11 +10,13 @@ import { ListContext } from "./conext/InputContext.jsx";
 export default function App() {
   
 const [list,setlist]=useState([
-  { id: 0, title: "قراءة كتاب", body: "" },
-  { id: 1, title: "انهاء كوروس الرياكت", body: "" },
-  { id: 2, title: "الدهاب لصالة الرياضة", body: "" },
-  { id: 3, title: "قراءة كتاب", body: "" },
-  { id: 4, title: "قراءة كتاب", body: "" }])
+  { id: 0, title: "قراءة كتاب", body: "" ,checked:true},
+  { id: 1, title: "انهاء كوروس الرياكت", body: "" ,checked:false},
+  { id: 2, title: "الدهاب لصالة الرياضة", body: "" ,checked:false},
+  { id: 3, title: "قراءة كتاب", body: "" ,checked:false},
+  { id: 4, title: "قراءة كتاب", body: "kk" ,checked:false}])
+
+  const [check,setcheck] =useState(false)
 
   const[edit,setedit]=useState(false)
 
@@ -25,7 +27,7 @@ const [list,setlist]=useState([
   return (
     <div className="App">
 
-    <ListContext.Provider value={{ list,setlist ,edit,setedit,Id,setId}} >
+    <ListContext.Provider value={{ list,setlist ,edit,setedit,Id,setId,check,setcheck}} >
      <Box />
     </ListContext.Provider>
      

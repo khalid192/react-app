@@ -4,14 +4,50 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useContext } from "react";
 import { ListContext } from "./conext/InputContext.jsx";
+import {useState,useEffect} from 'react';
+
 
 
 export default function PageEdiit() {
+ 
+  const { edit, setedit,Id,list,setlist } = useContext(ListContext);
+ const item=list.find(i=> i.id==Id) 
+ console.log(item);
 
+
+
+
+ const [inputValue, setInputValue] = useState({ title: '' , body:'' });
+
+useEffect(() => {
+  if (item) {
+    setInputValue({
+      title: item.title,
+      body: item.body
+    });
+  }
+}, [item]);
 function Cancel(){setedit(false)}
 
-    const { edit, setedit,Id } = useContext(ListContext);
-console.log(Id)
+  function TitleF(e){
+    setInputValue({...inputValue, title:e.target.value})
+  }
+
+  function BodyF(e){
+    setInputValue({...inputValue, body:e.target.value})
+  } 
+
+  function Update(){
+    setlist((E) =>
+      E.map((itm) =>
+        itm.id === Id ? { ...itm, title: inputValue.title, body: inputValue.body } : itm
+      )
+    );
+    setedit(false);
+  }
+
+ 
+
 
 
 
@@ -45,14 +81,17 @@ console.log(Id)
         <Stack spacing={2} direction="column"  >
             
           <TextField
-         
+            onChange={(e)=>{TitleF(e)}}
             id="outlined-basic"
+            value={inputValue.title}
             label="العنوان"
             variant="standard"
             sx={{direction:'rtl',"& input":{textAlign:'right',},"& label":{direction:'rtl',textAlign:'right',right:0,left:'auto'}}}
           />
 
           <TextField
+           onChange={(e)=>{BodyF(e)}}
+           value={inputValue.body}
             id="outlined-basic"
             label="التفاصيل المهمة"
             variant="standard"
@@ -61,7 +100,7 @@ console.log(Id)
         </Stack>
         <Stack spacing={2} direction="row" justifyContent={'flex-end'} marginTop={'20px'}>
             <Button onClick={Cancel} variant="text">إلغاء</Button>
-            <Button variant="text">تعديل</Button>
+            <Button onClick={Update} variant="text">تعديل</Button>
         </Stack>
       </div>
 

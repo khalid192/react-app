@@ -17,14 +17,24 @@ export default function ListI() {
 
     
      
-  const {list ,setlist ,edit, setedit} = useContext(ListContext);
+  const {list ,setlist ,edit,setId, setedit} = useContext(ListContext);
 function Delete (id){ setlist((e)=>e.filter(item => item.id !== id)) }
 
 function Edit (id){ setedit(true) ,setId(id)}
 
+
+    function CheckF(id){
+
+      setlist((E) =>
+      E.map((itm) =>
+        itm.id === id ? { ...itm,checked: itm.checked ? false : true}  : itm
+      )
+    );
+    }
+
   let listItems = list.map((item) => (
     <ListItem
-      style={{ display: "flex", alignItems: "center", padding: "1px 6px" }}
+      style={{ display: "flex", alignItems: "center", padding: "1px 6px",background:item.checked?'#064516ff':'#bbb2b2ff',marginBottom:' 8px',borderRadius:'5px',boxShadow:'0 0 5px #ada4a4a5' }}
       key={item.id}
     >
   
@@ -40,7 +50,7 @@ function Edit (id){ setedit(true) ,setId(id)}
             <EditIcon sx={{color:"#235bc9ff"}}  /> 
           </Fab>
     
-         <Fab size="small" sx={{background:"white",boxShadow:'#41b755ff 0 0 1px 1px ', '&:hover':{backgroundColor: '#7ee3807f',},scale:'0.75' }}  aria-label="Delete">
+         <Fab onClick={()=>{CheckF(item.id)}}  size="small" sx={{background:item.checked?'#56735bff':'white',boxShadow:'#41b755ff 0 0 1px 1px ', '&:hover':{backgroundColor: '#7ee3807f',},scale:'0.75' }}  aria-label="Delete">
             <CheckIcon sx={{color:"#41b755ff"}}  /> 
           </Fab>
     
@@ -55,10 +65,11 @@ function Edit (id){ setedit(true) ,setId(id)}
         }}
       >
         {item.title}
-        <p>{item.body}</p>
+        <p style={{fontSize:'13px',margin:'0'}}>{item.body}</p>
       </ListItemText>
     </ListItem>
   ));
 
   return <>{listItems}</>;
+
 }
