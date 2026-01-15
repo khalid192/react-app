@@ -9,15 +9,18 @@ import EditIcon from '@mui/icons-material/Edit';
 import Fab from '@mui/material/Fab';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import CheckIcon from '@mui/icons-material/Check';
+ import './index.css'
 
 
 import "./index.css";
+import { Height } from "@mui/icons-material";
+import { height } from "@mui/system";
 
 export default function ListI() {
 
     
      
-  const {list ,setlist ,edit,setId, setedit} = useContext(ListContext);
+  const {list ,setlist ,edit,setId, setedit,IsDone} = useContext(ListContext);
 function Delete (id){ setlist((e)=>e.filter(item => item.id !== id)) }
 
 function Edit (id){ setedit(true) ,setId(id)}
@@ -32,12 +35,20 @@ function Edit (id){ setedit(true) ,setId(id)}
     );
     }
 
-  let listItems = list.map((item) => (
+let filteredList = list.filter(item => 
+  (item.checked === true && IsDone === 2) || 
+  (item.checked === false && IsDone === 3)||(IsDone === 1)
+);
+ 
+
+  let listItems = filteredList.map((item) => (
+   
+   
     <ListItem
       style={{ display: "flex", alignItems: "center", padding: "1px 6px",background:item.checked?'#064516ff':'#bbb2b2ff',marginBottom:' 8px',borderRadius:'5px',boxShadow:'0 0 5px #ada4a4a5' }}
       key={item.id}
     >
-  
+  <div className="dd" style={{width:'100%',display:'flex',alignItems:'center'}} > 
       <ListItemIcon sx={{ minWidth: 40, marginLeft: 'auto',margin:0 }}>
      
           
@@ -56,20 +67,26 @@ function Edit (id){ setedit(true) ,setId(id)}
     
         </ListItemIcon> 
       <ListItemText
-        sx={{ direction: "rtl", textAlign: "right" }}
+        sx={{ direction: "rtl",  textAlign: "right",  }}
         style={{
           direction: "rtl",
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
+          alignItems: "flex-start",
+          width: "80%",
+          textDecoration: item.checked ? "line-through" : "none",
+          color: item.checked ? "gray" : "black",
         }}
       >
         {item.title}
         <p style={{fontSize:'13px',margin:'0'}}>{item.body}</p>
       </ListItemText>
+      </div>
     </ListItem>
-  ));
+  ))
 
+ 
   return <>{listItems}</>;
 
 }

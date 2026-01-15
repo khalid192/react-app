@@ -22,12 +22,13 @@ const [list,setlist]=useState([
 
   const[Id,setId]=useState('')
   
+  const[IsDone,setIsDone]=useState(1)
   
   
   return (
     <div className="App">
 
-    <ListContext.Provider value={{ list,setlist ,edit,setedit,Id,setId,check,setcheck}} >
+    <ListContext.Provider value={{ list,setlist ,edit,setedit,Id,setId,check,setcheck,IsDone,setIsDone}} >
      <Box />
     </ListContext.Provider>
      

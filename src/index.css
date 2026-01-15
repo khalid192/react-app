@@ -30,4 +30,18 @@ h1{
     font-weight: 700;
     margin: 0;
 }
+.dd{
+    height: 50px;
+    min-height: 50px;
+    transition: 0.3s all;}
 
+.dd:hover{
+    height: 70px;
+}
+p{
+    color: rgb(59, 59, 59);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    margin: 0;
+    
+    }
