@@ -10,12 +10,22 @@ import {ListContext} from './conext/InputContext.jsx'
 export default function ButtonAdd() {   
 
   let [inputValue, setInputValue] = useState('');
-   const {list ,setlist} = useContext(ListContext);
+   const {list ,setlist,setState,state} = useContext(ListContext);
 
   function Handelchange() {
-    if(inputValue!=''){setlist((e)=>[...e,{id:Date.now(), title: inputValue, body: "" }])}
+    if(inputValue!=''){setlist((e)=>[...e,{id:Date.now(), title: inputValue, body: "" }]);
+      setInputValue('');
+    setState({
+      ...state,
+      open: true, title: 'تمت الاضافة بنجاح', severity: 'success', variant: 'filled'
+    });}else{
+        setState({
+      ...state,
+      open: true, title: 'خطأ ، يجب ملء عنوان المهمة أولاً', severity: 'error', variant: 'filled'
+    });
+      }
 
-    setInputValue('')
+    
   
   }
 

@@ -8,17 +8,25 @@ import {useState,useEffect} from 'react';
 
 
 
+
 export default function PageEdiit() {
  
-  const { edit, setedit,Id,list,setlist } = useContext(ListContext);
+  const { edit, setedit,Id,list,setlist ,inputValue,setInputValue,state, setState} = useContext(ListContext);
  const item=list.find(i=> i.id==Id) 
  console.log(item);
 
 
 
 
- const [inputValue, setInputValue] = useState({ title: '' , body:'' });
 
+
+
+
+
+
+
+
+ 
 useEffect(() => {
   if (item) {
     setInputValue({
@@ -38,13 +46,24 @@ function Cancel(){setedit(false)}
   } 
 
   function Update(){
+    if(inputValue.title.trim() !== '') {
     setlist((E) =>
       E.map((itm) =>
         itm.id === Id ? { ...itm, title: inputValue.title, body: inputValue.body } : itm
       )
     );
     setedit(false);
+     setState({
+      ...state,
+      open: true, title: 'تم التعديل بنجاح', severity: 'success', variant: 'filled'
+    });
+  }else{
+ setState({
+      ...state,
+      open: true, title: 'خطأ في التعديل، يجب ملء العنوان أولاً', severity: 'error', variant: 'filled'
+    });
   }
+}
 
  
 
@@ -103,9 +122,11 @@ function Cancel(){setedit(false)}
             <Button onClick={Update} variant="text">تعديل</Button>
         </Stack>
       </div>
-
+      
 
       </div>
+
+            
     </Box>
   );
 }
