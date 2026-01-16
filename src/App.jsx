@@ -1,7 +1,7 @@
   import './index.css'
   import Box from './box.jsx'
 import Tooltip from '@mui/material/Tooltip';
-import { use, useState } from 'react';
+import {  useState,useEffect } from 'react';
 import { ListContext } from "./conext/InputContext.jsx";
 
 
@@ -10,12 +10,15 @@ import { ListContext } from "./conext/InputContext.jsx";
 
 export default function App() {
   
-const [list,setlist]=useState([
-  { id: 0, title: "قراءة كتاب", body: "" ,checked:true},
-  { id: 1, title: "انهاء كوروس الرياكت", body: "" ,checked:false},
-  { id: 2, title: "الدهاب لصالة الرياضة", body: "" ,checked:false},
-  { id: 3, title: "قراءة كتاب", body: "" ,checked:false},
-  { id: 4, title: "قراءة كتاب", body: "kk" ,checked:false}])
+const [list,setlist]=useState(() => {
+  const savedTasks = localStorage.getItem('tasks');
+  return savedTasks
+    ? JSON.parse(savedTasks)
+    : [
+        { id: 0, title: "قراءة كتاب", body: "", checked: true },
+        { id: 1, title: "انهاء كوروس الرياكت", body: "", checked: false }
+      ];
+});
 
   const [check,setcheck] =useState(false)
 
@@ -25,6 +28,14 @@ const [list,setlist]=useState([
   
   const[IsDone,setIsDone]=useState(1)
    const [inputValue, setInputValue] = useState({ title: '' , body:'' });
+
+   useEffect(() => {
+  
+    localStorage.setItem('tasks', JSON.stringify(list));
+  
+}, [list]);
+
+
 
     const [state, setState] = useState({
     open: false,

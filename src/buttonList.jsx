@@ -6,10 +6,11 @@ import CheckIcon from '@mui/icons-material/Check';
 
 
 
+
 export default function ButtonList(){
 
 
-       function Delete (){console.log(item.id) }
+      
       
     
     const btn =<ListItemIcon sx={{ minWidth: 40, marginLeft: 'auto',margin:0 }}>
