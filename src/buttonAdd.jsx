@@ -2,19 +2,26 @@
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
+import { useState,useMemo } from 'react';
 import { useContext,useEffect } from 'react';
 import {ListContext} from './conext/InputContext.jsx'
 
 
 
 export default function ButtonAdd() {   
+  
+
+ 
+  
 
   let [inputValue, setInputValue] = useState('');
    const {list ,setlist,setState,state} = useContext(ListContext);
-
-
    
+
+
+
+
+
   useEffect(() => {
   const savedTasks = localStorage.getItem('tasks');
 

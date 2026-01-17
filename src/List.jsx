@@ -1,9 +1,8 @@
-import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { ListContext } from "./conext/InputContext.jsx";
-import { useContext } from "react";
+import { useContext,useMemo } from "react";
 import ListItemText from "@mui/material/ListItemText";
-import ButtonList from "./buttonList.jsx";
+
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
 import Fab from "@mui/material/Fab";
@@ -15,25 +14,38 @@ import Grow from "@mui/material/Grow";
 import Alert from "@mui/material/Alert";
 
 import "./index.css";
-import { Height } from "@mui/icons-material";
-import { height } from "@mui/system";
 
 export default function ListI() {
-  const { list, setlist, edit, setId, setedit, IsDone ,inputValue,setInputValue,state, setState} =
-    useContext(ListContext);
+  const {
+    list,
+    setlist,
+    edit,
+    setId,
+    setedit,
+    IsDone,
+    inputValue,
+    setInputValue,
+    state,
+    setState,
+  } = useContext(ListContext);
+
+
+
   function Delete(id) {
     setlist((e) => e.filter((item) => item.id !== id));
+    
   }
 
   function Edit(id) {
     setedit(true), setId(id);
+ 
   }
-    const handleClose = () => {
-      setState({
-        ...state,
-        open: false,
-      });
-    };
+  const handleClose = () => {
+    setState({
+      ...state,
+      open: false,
+    });
+  };
 
   function CheckF(id) {
     setlist((E) =>
@@ -43,14 +55,18 @@ export default function ListI() {
     );
   }
 
-  let filteredList = list.filter(
+
+  const filteredList = list.filter(
     (item) =>
-      (item.checked === true && IsDone === 2) ||
+    ((item.checked === true && IsDone === 2) ||
       (item.checked === false && IsDone === 3) ||
-      IsDone === 1
+      IsDone === 1),
+      
+
   );
 
   let listItems = filteredList.map((item) => (
+  
     <ListItem
       style={{
         display: "flex",

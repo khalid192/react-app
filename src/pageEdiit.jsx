@@ -2,9 +2,9 @@ import Box from "@mui/material/Box";
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useContext } from "react";
+import { useContext ,useEffect} from "react";
 import { ListContext } from "./conext/InputContext.jsx";
-import {useState,useEffect} from 'react';
+
 
 
 
@@ -13,7 +13,7 @@ export default function PageEdiit() {
  
   const { edit, setedit,Id,list,setlist ,inputValue,setInputValue,state, setState} = useContext(ListContext);
  const item=list.find(i=> i.id==Id) 
- console.log(item);
+
 
 
 
@@ -35,6 +35,7 @@ useEffect(() => {
     });
   }
 }, [item]);
+
 function Cancel(){setedit(false)}
 
   function TitleF(e){
