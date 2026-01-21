@@ -151,7 +151,7 @@ export default function ListI() {
       </div>
       <Snackbar
         style={{ zIndex: 500000000, padding: 0 }}
-        open={state.open}
+        open={state.open}  
         onClose={handleClose}
         slots={{ transition: Grow }}
         autoHideDuration={1200}
