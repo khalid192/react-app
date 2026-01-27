@@ -4,6 +4,7 @@
   import ListI from './List.jsx'
   import ButtonAdd from './buttonAdd'
   import PageEdiit from './pageEdiit.jsx'
+  import Caluct from './caluct.jsx'
 
 export default function Box() {
   return<>
@@ -11,10 +12,11 @@ export default function Box() {
 
   
      <div className="box">
-    <h1>مهامي</h1>
+    {/* <h1>مهامي</h1>
     <VariantButtonGroup />
     <ListI />
-    <ButtonAdd /> 
+    <ButtonAdd />  */}
+    <Caluct />
   </div>
   </>
 }
