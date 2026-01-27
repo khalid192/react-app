@@ -78,7 +78,7 @@ export default function ListI() {
         boxShadow: "0 0 5px #ada4a4a5",
       }}
       key={item.id}
-    >
+    > 
       <div
         className="dd"
         style={{ width: "100%", display: "flex", alignItems: "center" }}
