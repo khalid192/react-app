@@ -4,13 +4,14 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useContext ,useEffect} from "react";
 import { ListContext } from "./conext/InputContext.jsx";
-
+import { ListContext2 } from "./reducer/RedurcerList.jsx"
 
 
 
 
 export default function PageEdiit() {
- 
+  const { dispatch , List } = useContext(ListContext2)
+
   const { edit, setedit,Id,list,setlist ,inputValue,setInputValue,state, setState} = useContext(ListContext);
  const item=list.find(i=> i.id==Id) 
 
@@ -40,6 +41,7 @@ function Cancel(){setedit(false)}
 
   function TitleF(e){
     setInputValue({...inputValue, title:e.target.value})
+    
   }
 
   function BodyF(e){
@@ -48,6 +50,9 @@ function Cancel(){setedit(false)}
 
   function Update(){
     if(inputValue.title.trim() !== '') {
+      dispatch({type:"edit",data:{inputValue,Id}})
+
+
     setlist((E) =>
       E.map((itm) =>
         itm.id === Id ? { ...itm, title: inputValue.title, body: inputValue.body } : itm

@@ -1,7 +1,8 @@
 import ListItem from "@mui/material/ListItem";
 import { ListContext } from "./conext/InputContext.jsx";
-import { useContext,useMemo } from "react";
+import { useContext, } from "react";
 import ListItemText from "@mui/material/ListItemText";
+import FreducerList from "./reducer/RedurcerList.jsx"
 
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
@@ -12,12 +13,12 @@ import "./index.css";
 import Snackbar from "@mui/material/Snackbar";
 import Grow from "@mui/material/Grow";
 import Alert from "@mui/material/Alert";
-
+import { ListContext2 } from "./reducer/RedurcerList.jsx"
 import "./index.css";
 
 export default function ListI() {
   const {
-    list,
+  
     setlist,
     edit,
     setId,
@@ -29,14 +30,19 @@ export default function ListI() {
     setState,
   } = useContext(ListContext);
 
+const { list, dispatch } = useContext(ListContext2);
+
+
 
 
   function Delete(id) {
-    setlist((e) => e.filter((item) => item.id !== id));
-    
+     dispatch({type:'delete',data:id})
   }
 
   function Edit(id) {
+   
+
+
     setedit(true), setId(id);
  
   }

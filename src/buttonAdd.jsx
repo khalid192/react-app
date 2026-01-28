@@ -3,15 +3,16 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useState,useMemo } from 'react';
-import { useContext,useEffect } from 'react';
+import { useContext,useEffect,useReducer } from 'react';
 import {ListContext} from './conext/InputContext.jsx'
+import { ListContext2 } from "./reducer/RedurcerList.jsx"
 
 
 
 export default function ButtonAdd() {   
   
 
- 
+ const { dispatch } = useContext(ListContext2)
   
 
   let [inputValue, setInputValue] = useState('');
@@ -35,7 +36,9 @@ export default function ButtonAdd() {
    
 
     if(inputValue!=''){
-      setlist((e)=>[...e,{id:Date.now(), title: inputValue, body: "" }]);
+      dispatch({type:"add",data:inputValue})
+
+
       setInputValue('');
     setState({
       ...state,
@@ -50,6 +53,7 @@ export default function ButtonAdd() {
    
   
   }
+
 
 
     return (
