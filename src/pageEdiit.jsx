@@ -10,21 +10,13 @@ import { ListContext2 } from "./reducer/RedurcerList.jsx"
 
 
 export default function PageEdiit() {
-  const { dispatch , List } = useContext(ListContext2)
+  const { dispatch , list } = useContext(ListContext2)
 
-  const { edit, setedit,Id,list,setlist ,inputValue,setInputValue,state, setState} = useContext(ListContext);
+  const { edit, setedit,Id, inputValue,setInputValue,state, setState} = useContext(ListContext);
+
+  
  const item=list.find(i=> i.id==Id) 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
  
@@ -40,6 +32,7 @@ useEffect(() => {
 function Cancel(){setedit(false)}
 
   function TitleF(e){
+    
     setInputValue({...inputValue, title:e.target.value})
     
   }
@@ -52,18 +45,14 @@ function Cancel(){setedit(false)}
     if(inputValue.title.trim() !== '') {
       dispatch({type:"edit",data:{inputValue,Id}})
 
-
-    setlist((E) =>
-      E.map((itm) =>
-        itm.id === Id ? { ...itm, title: inputValue.title, body: inputValue.body } : itm
-      )
-    );
     setedit(false);
+
      setState({
       ...state,
       open: true, title: 'تم التعديل بنجاح', severity: 'success', variant: 'filled'
     });
   }else{
+    
  setState({
       ...state,
       open: true, title: 'خطأ في التعديل، يجب ملء العنوان أولاً', severity: 'error', variant: 'filled'

@@ -1,6 +1,6 @@
 import ListItem from "@mui/material/ListItem";
 import { ListContext } from "./conext/InputContext.jsx";
-import { useContext, } from "react";
+import { useContext, useEffect} from "react";
 import ListItemText from "@mui/material/ListItemText";
 import FreducerList from "./reducer/RedurcerList.jsx"
 
@@ -32,7 +32,11 @@ export default function ListI() {
 
 const { list, dispatch } = useContext(ListContext2);
 
-
+ useEffect(() => {
+   
+     localStorage.setItem('tasks', JSON.stringify(list));
+   
+ }, [list]);
 
 
   function Delete(id) {
@@ -41,8 +45,6 @@ const { list, dispatch } = useContext(ListContext2);
 
   function Edit(id) {
    
-
-
     setedit(true), setId(id);
  
   }
@@ -54,11 +56,9 @@ const { list, dispatch } = useContext(ListContext2);
   };
 
   function CheckF(id) {
-    setlist((E) =>
-      E.map((itm) =>
-        itm.id === id ? { ...itm, checked: itm.checked ? false : true } : itm
-      )
-    );
+
+  dispatch({type:'Check',data:id})
+
   }
 
 

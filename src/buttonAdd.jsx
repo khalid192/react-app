@@ -16,21 +16,14 @@ export default function ButtonAdd() {
   
 
   let [inputValue, setInputValue] = useState('');
-   const {list ,setlist,setState,state} = useContext(ListContext);
+   const {setState,state} = useContext(ListContext);
    
  
 
 
 
 
-  useEffect(() => {
-  const savedTasks = localStorage.getItem('tasks');
-
-  if (savedTasks) {
-    setlist(JSON.parse(savedTasks));
-  }
-}, []);
-   
+  
 
   function Handelchange() {
    
