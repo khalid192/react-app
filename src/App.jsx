@@ -11,7 +11,7 @@ import { ListContext } from "./conext/InputContext.jsx";
 export default function App() {
 
 
-  const [check,setcheck] =useState(false)
+
 
   const[edit,setedit]=useState(false)
 
@@ -19,12 +19,12 @@ export default function App() {
   
   const[IsDone,setIsDone]=useState(1)
 
-   const [inputValue, setInputValue] = useState({ title: '' , body:'' });
+  const [inputValue, setInputValue] = useState({ title: '' , body:'' });
 
 
 
 
-    const [state, setState] = useState({
+  const [state, setState] = useState({
     open: false,
     title: '',
     severity: '',
@@ -36,7 +36,7 @@ export default function App() {
   return (
     <div className="App">
 
-    <ListContext.Provider value={{edit,setedit,Id,setId,check,setcheck,IsDone,setIsDone,inputValue,setInputValue,state, setState}} >
+    <ListContext.Provider value={{edit,setedit,Id,setId,IsDone,setIsDone,state, setState}} >
      <Box />
   
     </ListContext.Provider>

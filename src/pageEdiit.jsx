@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import { useContext ,useEffect} from "react";
 import { ListContext } from "./conext/InputContext.jsx";
 import { ListContext2 } from "./reducer/RedurcerList.jsx"
+import { useState } from "react";
 
 
 
@@ -12,9 +13,11 @@ import { ListContext2 } from "./reducer/RedurcerList.jsx"
 export default function PageEdiit() {
   const { dispatch , list } = useContext(ListContext2)
 
-  const { edit, setedit,Id, inputValue,setInputValue,state, setState} = useContext(ListContext);
+  const { edit, setedit,Id,state, setState} = useContext(ListContext);
 
-  
+   let [inputValue, setInputValue] = useState('');
+
+   
  const item=list.find(i=> i.id==Id) 
  
 

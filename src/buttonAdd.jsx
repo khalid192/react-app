@@ -2,8 +2,8 @@
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { useState,useMemo } from 'react';
-import { useContext,useEffect,useReducer } from 'react';
+import { useState, } from 'react';
+import { useContext, } from 'react';
 import {ListContext} from './conext/InputContext.jsx'
 import { ListContext2 } from "./reducer/RedurcerList.jsx"
 
@@ -16,7 +16,7 @@ export default function ButtonAdd() {
   
 
   let [inputValue, setInputValue] = useState('');
-   const {setState,state} = useContext(ListContext);
+  const {setState,state} = useContext(ListContext);
    
  
 
@@ -41,7 +41,7 @@ export default function ButtonAdd() {
       ...state,
       open: true, title: 'خطأ ، يجب ملء عنوان المهمة أولاً', severity: 'error', variant: 'filled'
     });
-      }
+    }
 
    
   
@@ -49,7 +49,7 @@ export default function ButtonAdd() {
 
 
 
-    return (
+  return (
     <>
       <Stack  direction={'row'} spacing={1} width={'95%'} margin={'10px'} height={"40px"}>
        <Button onClick={Handelchange} size='large' variant="contained" style={{width:'30%'}} >اضافة</Button>

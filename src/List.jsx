@@ -18,14 +18,9 @@ import "./index.css";
 
 export default function ListI() {
   const {
-  
-    setlist,
-    edit,
     setId,
     setedit,
     IsDone,
-    inputValue,
-    setInputValue,
     state,
     setState,
   } = useContext(ListContext);
@@ -58,7 +53,7 @@ const { list, dispatch } = useContext(ListContext2);
   function CheckF(id) {
 
   dispatch({type:'Check',data:id})
-
+  
   }
 
 
