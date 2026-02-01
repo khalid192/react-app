@@ -4,7 +4,6 @@
   import ListI from './List.jsx'
   import ButtonAdd from './buttonAdd'
   import PageEdiit from './pageEdiit.jsx'
-  import Caluct from './caluct.jsx'
   import { ListProvider } from "./reducer/RedurcerList.jsx"
 
 export default function Box() {

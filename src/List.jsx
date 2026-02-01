@@ -2,7 +2,6 @@ import ListItem from "@mui/material/ListItem";
 import { ListContext } from "./conext/InputContext.jsx";
 import { useContext, useEffect} from "react";
 import ListItemText from "@mui/material/ListItemText";
-import FreducerList from "./reducer/RedurcerList.jsx"
 
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
