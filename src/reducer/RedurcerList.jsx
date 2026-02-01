@@ -2,6 +2,9 @@
 import React, { createContext, useReducer } from "react";
 export const ListContext2 = createContext();
 
+
+
+
 export default function FreducerList(state,action) {
   console.log(state)
   switch (action.type) {
@@ -19,7 +22,7 @@ export default function FreducerList(state,action) {
      { ...itm, title: action.data.inputValue.title, body: action.data.inputValue.body } : itm);
 
     case "Check":
-      
+
       return state.map((itm) =>
         Number(itm.id) === Number(action.data) ? { ...itm, checked: itm.checked ? false : true } : itm
       ) 
